@@ -35,5 +35,5 @@ function createBook(tieuDe, tacGia, namXuatBan, gia) {
     return sach;
 }
     const myBook = createBook("Hướng dẫn JavaScript", "Nguyễn Văn A", 2025, 29.99);
-    console.log(myBook.getBookInfo());
-    console.log(`Giá sau khi giảm (giảm 20%): $${myBook.calculateDiscount(20)}`);
+    console.log(myBook.layThongTinSach());
+    console.log(`Giá sau khi giảm (giảm 20%): $${myBook.tinhGiamGia(20)}`);
