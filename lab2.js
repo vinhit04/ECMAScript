@@ -64,7 +64,7 @@ const emailTemplate = `
     </ul>
   </div>
 `; // viet template o day
-console.log(emailTemplate);
+// console.log(emailTemplate);
 
 
 // Bai 2 : Tao HTML template
@@ -85,4 +85,57 @@ const productCard = `
     <p>In Stock: ${product.inStock ? "Yes" : "No"}</p>
   </div>
 `; // viet template o day
-console.log(productCard);
+// console.log(productCard);
+
+
+
+// Bài tâp : sử dụng property và method shorthand
+// Viết lại object sau sử dụng ES6 enhanced object literals
+const width = 100;
+const height = 200;
+const color = "red";
+
+const rectangle = {
+  width: width,
+  height: height,
+  color: color,
+  calculateArea: function () {
+    return this.width * this.height;
+  },
+  describe: function () {
+    return `Rectangle ${this.width}x${this.height}, color: ${this.color}`;
+  },
+};
+// Sửa lại như sau :
+const rectangle2 = {
+  width,
+  height,
+  color,
+  calculateArea() {
+    return this.width * this.height;
+  },
+  describe() {
+    return `Rectangle ${this.width}x${this.height}, color: ${this.color}`;
+  },
+}
+
+
+// Bài tập : sử dụng computed propertis 
+// Tạo object configuration với computed property names
+const env = "production";
+const version = "v2";
+const features = ["auth", "payment", "notification"];
+
+// Tạo object config với:
+// - key: `api_${env}_${version}`
+// - key cho từng feature: `feature_${featureName}`
+// - method: `get${env}Config()`
+
+const config = {
+  // Viết code ở đây
+  [`api_${env}_${version}`]: `https://api.example.com/${env}/${version}`,
+  ...features.reduce((acc, feature) => {
+    acc[`feature_${feature}`] = true;
+    return acc;
+  }, {}),
+};
