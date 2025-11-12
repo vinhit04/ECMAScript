@@ -40,3 +40,40 @@ function fetchMultipleData(urls) {
 fetchMultipleData(["/api/user/1", "/api/user/2"]).then((users) =>
   console.log(users)
 );
+
+
+// Bài 1: Viết lại callback hell thành async/await
+
+
+// Viết lại hàm này sử dụng async/await
+function processOrder(orderId, callback) {
+  getOrder(orderId, (order) => {
+    getUser(order.userId, (user) => {
+      getProducts(order.productIds, (products) => {
+        callback({ order, user, products });
+      });
+    });
+  });
+}
+// Giải pháp sử dụng async/await
+async function processOrderAsync(orderId) {
+    const order = await getOrder(orderId);
+    const user = await getUser(order.userId);
+    const products = await getProducts(order.productIds);
+    return { order, user, products };
+}
+console.log(processOrderAsync(123).then((data) => console.log(data)));
+
+
+
+// Bài 2: Xử lý lỗi với async/await
+async function safeApiCall(apiFunction, ...args) {
+  // Your code here
+    try {
+        const result = await apiFunction(...args);
+        return result;
+    } catch (error) {
+        console.error("API call failed:", error);
+        throw error;
+    }
+}

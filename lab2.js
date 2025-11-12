@@ -120,6 +120,7 @@ const rectangle2 = {
 }
 
 
+
 // Bài tập : sử dụng computed propertis 
 // Tạo object configuration với computed property names
 const env = "production";
