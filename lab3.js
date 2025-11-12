@@ -4,7 +4,7 @@ function multiply(a, b) {
   return a * b;
 }
 // Arrow function version
-const multiply = (a, b) => a * b;
+const number = (a, b) => a * b;
 // Function 2
 function isPositive(number) {
   return number >= 0;
@@ -15,6 +15,7 @@ const isPositive = (number) => number >= 0;
 function getRandomNumber() {
   return Math.random();
 }
+console.log(getRandomNumber());
 // Arrow function version
 const getRandomNumber = () => Math.random();
 // Function 4

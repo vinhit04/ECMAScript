@@ -64,7 +64,7 @@ const emailTemplate = `
     </ul>
   </div>
 `; // viet template o day
-// console.log(emailTemplate);
+console.log(emailTemplate);
 
 
 // Bai 2 : Tao HTML template
@@ -85,7 +85,7 @@ const productCard = `
     <p>In Stock: ${product.inStock ? "Yes" : "No"}</p>
   </div>
 `; // viet template o day
-// console.log(productCard);
+console.log(productCard);
 
 
 
@@ -106,6 +106,8 @@ const rectangle = {
     return `Rectangle ${this.width}x${this.height}, color: ${this.color}`;
   },
 };
+console.log(rectangle.describe());
+
 // Sửa lại như sau :
 const rectangle2 = {
   width,
@@ -118,8 +120,7 @@ const rectangle2 = {
     return `Rectangle ${this.width}x${this.height}, color: ${this.color}`;
   },
 }
-
-
+console.log(rectangle2.describe());
 
 // Bài tập : sử dụng computed propertis 
 // Tạo object configuration với computed property names
@@ -139,4 +140,8 @@ const config = {
     acc[`feature_${feature}`] = true;
     return acc;
   }, {}),
+  [`get${env}Config`]() {
+    return this[`api_${env}_${version}`];
+  }
 };
+console.log(config);

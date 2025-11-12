@@ -46,20 +46,23 @@ fetchMultipleData(["/api/user/1", "/api/user/2"]).then((users) =>
 
 
 // Viết lại hàm này sử dụng async/await
-function processOrder(orderId, callback) {
+function process(orderId, callback) {
   getOrder(orderId, (order) => {
     getUser(order.userId, (user) => {
       getProducts(order.productIds, (products) => {
         callback({ order, user, products });
       });
-    });
+      });
   });
 }
+console.log(process(123, (data) => console.log(data)));
+
+
 // Giải pháp sử dụng async/await
 async function processOrderAsync(orderId) {
-    const order = await getOrder(orderId);
-    const user = await getUser(order.userId);
-    const products = await getProducts(order.productIds);
+    const order = await order(orderId);
+    const user = await user(order.userId);
+    const products = await products(order.productIds);
     return { order, user, products };
 }
 console.log(processOrderAsync(123).then((data) => console.log(data)));
@@ -80,3 +83,4 @@ async function safeApiCall(apiFunction, ...args) {
 safeApiCall(fetch, "/api/data")
   .then((response) => console.log("Data fetched:", response))
   .catch((error) => console.log("Error occurred:", error));
+  
