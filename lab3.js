@@ -40,6 +40,7 @@ function createUser(name, age, isAdmin) {
     isAdmin: isAdmin,
   };
 }
+console.log(createUser());
 // sử dụng Default Parameters
 function createUser(name = "Anonymous", age = 18, isAdmin = false) {
   return {
@@ -48,6 +49,7 @@ function createUser(name = "Anonymous", age = 18, isAdmin = false) {
     isAdmin: isAdmin,
   };
 }
+console.log(createUser());
 
 
 // Bài tập 3: Rest và Spread
@@ -68,6 +70,7 @@ function createProduct(name = "Unnamed", price = 0, category = "General") {
     category: category,
   };
 }
+console.log(createProduct("Laptop", 1500, "Electronics"));
 
 
 
@@ -85,3 +88,9 @@ function shoppingCart(customerName, ...products) {
     totalAmount: totalAmount,
   };
 }
+const order = shoppingCart("John Doe", 
+  { name: "Laptop", price: 1500 }, 
+  { name: "Mouse", price: 50 },
+  { name: "Keyboard", price: 100 }
+);
+console.log(order);
