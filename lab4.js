@@ -77,3 +77,6 @@ async function safeApiCall(apiFunction, ...args) {
         throw error;
     }
 }
+safeApiCall(fetch, "/api/data")
+  .then((response) => console.log("Data fetched:", response))
+  .catch((error) => console.log("Error occurred:", error));
